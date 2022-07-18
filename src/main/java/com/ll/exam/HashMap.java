@@ -19,4 +19,22 @@ public class HashMap<K, V> {
         size++;
 
     }
+
+    public V get(K key) {
+
+        int keyIndex = -1;
+
+        for (int i = 0; i < size; i++) {
+            if (key == keys[i]) {
+                keyIndex = i;
+                break;
+            }
+        }
+
+        if (keyIndex == -1) {
+            return null;
+        }
+
+        return (V)values[keyIndex];
+    }
 }
