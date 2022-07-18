@@ -14,14 +14,7 @@ public class HashMap<K, V> {
 
     public void put(K key, V value) {
 
-        int keyIndex = -1;
-
-        for (int i = 0; i < size; i++) {
-            if (key == keys[i]) {
-                keyIndex = i;
-                break;
-            }
-        }
+        int keyIndex = getKeyIndex(key);
 
         if (keyIndex == -1) {
             keys[size] = key;
@@ -33,16 +26,18 @@ public class HashMap<K, V> {
 
     }
 
-    public V get(K key) {
-
-        int keyIndex = -1;
-
+    private int getKeyIndex(K key) {
         for (int i = 0; i < size; i++) {
             if (key == keys[i]) {
-                keyIndex = i;
-                break;
+                return i;
             }
         }
+        return -1;
+    }
+
+    public V get(K key) {
+
+        int keyIndex = getKeyIndex(key);
 
         if (keyIndex == -1) {
             return null;
