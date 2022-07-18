@@ -14,9 +14,22 @@ public class HashMap<K, V> {
 
     public void put(K key, V value) {
 
-        keys[size] = key;
-        values[size] = value;
-        size++;
+        int keyIndex = -1;
+
+        for (int i = 0; i < size; i++) {
+            if (key == keys[i]) {
+                keyIndex = i;
+                break;
+            }
+        }
+
+        if (keyIndex == -1) {
+            keys[size] = key;
+            values[size] = value;
+            size++;
+        } else {
+            values[keyIndex] = value;
+        }
 
     }
 
