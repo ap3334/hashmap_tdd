@@ -2,6 +2,8 @@ package com.ll.exam;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
@@ -71,20 +73,20 @@ class HashMapTest {
         assertEquals(0, ages.size());
     }
 
+    @Test
+    void keySet() {
+        HashMap<String, Integer> ages = new HashMap<>();
+        ages.put("철수", 22);
+        ages.put("영희", 25);
 
+        List<String> keySet = ages.keySet();
+        assertEquals("철수", keySet.get(0));
+        assertEquals("영희", keySet.get(1));
+    }
 }
 
 
-//    @Test
-//    void keySet() {
-//        HashMap<String, Integer> ages = new HashMap<>();
-//        ages.put("철수", 22);
-//        ages.put("영희", 25);
-//
-//        List<String> keySet = ages.keySet();
-//        assertEquals("철수", keySet.get(0));
-//        assertEquals("영희", keySet.get(1));
-//    }
+
 //
 //    @Test
 //    void 원숭이_맵() {
