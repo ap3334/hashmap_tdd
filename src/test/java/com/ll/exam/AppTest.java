@@ -22,11 +22,6 @@ class HashMapTest {
         HashMap<String, Integer> ages = new HashMap<>();
         ages.put("철수", 22);
     }
-
-}
-//
-//
-
 //
 //    @Test
 //    void get() {
@@ -36,6 +31,10 @@ class HashMapTest {
 //
 //        assertEquals(22, age);
 //    }
+
+}
+
+
 //
 //    @Test
 //    void _2nd_get() {
