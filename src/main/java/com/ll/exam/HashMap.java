@@ -28,7 +28,7 @@ public class HashMap<K, V> {
 
     private int getKeyIndex(K key) {
         for (int i = 0; i < size; i++) {
-            if (key == keys[i]) {
+            if (key.equals(keys[i])) {
                 return i;
             }
         }
@@ -44,5 +44,31 @@ public class HashMap<K, V> {
         }
 
         return (V)values[keyIndex];
+    }
+
+    public void remove(K key) {
+
+        int keyIndex = getKeyIndex(key);
+
+        if (keyIndex == -1) {
+            return;
+        }
+
+        moveLeft(keys, keyIndex + 1, size - 1);
+        moveLeft(values, keyIndex + 1, size - 1);
+
+        size--;
+
+    }
+
+    private void moveLeft(Object[] arr, int from, int to) {
+
+        for (int i = from; i <= to; i++) {
+            arr[i - 1] = arr[i];
+        }
+    }
+
+    public int size() {
+        return size;
     }
 }
