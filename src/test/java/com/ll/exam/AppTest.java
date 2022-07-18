@@ -12,11 +12,13 @@ class HashMapTest {
         HashMap map = new HashMap();
     }
 
+    @Test
+    void 제너릭이_가능하다() {
+        HashMap<String, Integer> map = new HashMap<>();
+    }
+
 }
-//    @Test
-//    void 제너릭이_가능하다() {
-//        HashMap<String, Integer> map = new HashMap<>();
-//    }
+//
 //
 //    @Test
 //    void put() {
