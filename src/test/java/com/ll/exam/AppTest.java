@@ -17,14 +17,16 @@ class HashMapTest {
         HashMap<String, Integer> map = new HashMap<>();
     }
 
+    @Test
+    void put() {
+        HashMap<String, Integer> ages = new HashMap<>();
+        ages.put("철수", 22);
+    }
+
 }
 //
 //
-//    @Test
-//    void put() {
-//        HashMap<String, Integer> ages = new HashMap<>();
-//        ages.put("철수", 22);
-//    }
+
 //
 //    @Test
 //    void get() {
