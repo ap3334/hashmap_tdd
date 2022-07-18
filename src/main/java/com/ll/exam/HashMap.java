@@ -11,13 +11,15 @@ public class HashMap<K, V> {
 
     HashMap() {
         size = 0;
-        keys = new Object[100];
-        values = new Object[100];
+        keys = new Object[2];
+        values = new Object[keys.length];
     }
 
     public void put(K key, V value) {
 
         int keyIndex = getKeyIndex(key);
+
+        sizeUpArrWhenFull();
 
         if (keyIndex == -1) {
             keys[size] = key;
@@ -27,6 +29,21 @@ public class HashMap<K, V> {
             values[keyIndex] = value;
         }
 
+    }
+
+    private void sizeUpArrWhenFull() {
+        if (isFull()) {
+            sizeUpArr();
+        }
+    }
+
+    private void sizeUpArr() {
+        keys = Util.arr.sizeUp(keys);
+        values = Util.arr.sizeUp(values);
+    }
+
+    private boolean isFull() {
+        return size == keys.length;
     }
 
     private int getKeyIndex(K key) {
@@ -57,19 +74,13 @@ public class HashMap<K, V> {
             return;
         }
 
-        moveLeft(keys, keyIndex + 1, size - 1);
-        moveLeft(values, keyIndex + 1, size - 1);
+        Util.arr.moveLeft(keys, keyIndex + 1, size - 1);
+        Util.arr.moveLeft(values, keyIndex + 1, size - 1);
 
         size--;
 
     }
 
-    private void moveLeft(Object[] arr, int from, int to) {
-
-        for (int i = from; i <= to; i++) {
-            arr[i - 1] = arr[i];
-        }
-    }
 
     public int size() {
         return size;
